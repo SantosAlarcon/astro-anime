@@ -1,5 +1,6 @@
 [
     {
+        "id":"shingeki-no-kyojin",
         "title": "Shingeki no Kyojin - Season 1",
         "year": 2013,
         "genres": ["Shonen","Drama","Suspense"],
@@ -8,6 +9,7 @@
         "image": "https://cdn.myanimelist.net/images/anime/10/47347.jpg"
     },
     {
+        "id":"boku-no-hero-academia",
         "title": "Boku no Hero Academia - Season 1",
         "year": 2016,
         "genres": ["Shonen"],
@@ -16,6 +18,7 @@
         "image": "https://cdn.myanimelist.net/images/anime/10/78745.jpg"
     },
 {
+        "id":"bakuman",
         "title": "Bakuman - Season 1",
         "year": 2010,
         "genres": ["Comedy","Drama","Romance"],
@@ -24,6 +27,7 @@
         "image": "https://cdn.myanimelist.net/images/anime/6/26138.jpg"
     },
     {
+        "id":"oshi-no-ko",
         "title": "Oshi no Ko - Season 1",
         "year": 2023,
         "genres": ["Drama","Supernatural"],
@@ -32,6 +36,7 @@
         "image": "https://cdn.myanimelist.net/images/anime/1812/134736.jpg"
     },
     {
+        "id":"code-geass",
         "title": "Code Geass",
         "year": 2006,
         "genres": ["Mecha","Drama","Supernatural"],
@@ -40,6 +45,7 @@
         "image":"https://cdn.myanimelist.net/images/anime/1032/135088.jpg"
     },
     {
+        "id":"bocchi-the-rock",
         "title": "Bocchi The Rock!",
         "year": 2022,
         "genres": ["Slice of Life","Comedy"],

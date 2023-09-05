@@ -3,15 +3,25 @@ import Layout from "../../layouts/Layout.astro";
 import animes from "../../mock/animes.json"
 import {slide} from "astro:transitions"
 
-const {anime} = Astro.params
-const info = animes[anime]
-console.log(info);
+export function getStaticPaths() {
+    return [
+        {params: {id: "shingeki-no-kyojin"}},
+        {params: {id: "boku-no-hero-academia"}},
+        {params: {id: "bakuman"}},
+        {params: {id: "oshi-no-ko"}},
+        {params: {id: "code-geass"}},
+        {params: {id: "bocchi-the-rock"}},
+    ];
+}
+
+const {id} = Astro.params
+const info = animes.find(a => a.id === id)
 ---
 
 <Layout title={`Astro Anime - ${info.title}`}>
     <main class="anime-info">
         <aside>
-            <img src={info.image} transition:name={`anime-poster-${anime}`} />
+            <img src={info.image} transition:name={`anime-poster-${id}`} />
         </aside>
         <article transition:animate="slide">
             <h2>{info.title}</h2>

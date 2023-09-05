@@ -1,7 +1,7 @@
 ---
-import {Anime} from "../types/types.d"
 import {slide} from "astro:transitions"
 interface Props {
+    id: string,
     title: string,
     year: number,
     studio: string,
@@ -9,12 +9,12 @@ interface Props {
     key: number
 }
 
-const {title, year, studio, image, key} = Astro.props
+const {id, title, year, studio, image, key} = Astro.props
 ---
 
 <li id="anime-item">
-    <a href={`/animes/${key}`} title={title}><img src={image}
-        transition:name=`anime-poster-${key}` /></a>
+    <a href={`/animes/${id}`} title={title}><img src={image}
+        transition:name=`anime-poster-${id}` /></a>
     <h3>{title}</h3>
     <h5>{year} - {studio}</h5>
 </li>

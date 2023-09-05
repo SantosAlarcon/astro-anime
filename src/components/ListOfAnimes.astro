@@ -4,7 +4,7 @@ import AnimeItem from "./AnimeItem.astro"
 ---
 <div id="lista-animes">
     {animes.map((anime, index) => (
-        <AnimeItem title={anime.title} year={anime.year} studio={anime.studio}
+        <AnimeItem id={anime.id} title={anime.title} year={anime.year} studio={anime.studio}
         image={anime.image} key={index}  />
     ))}
 </div>
