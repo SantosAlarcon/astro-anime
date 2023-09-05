@@ -1,0 +1,18 @@
+---
+import animes from "../mock/animes.json"
+import AnimeItem from "./AnimeItem.astro"
+---
+<div id="lista-animes">
+    {animes.map((anime, index) => (
+        <AnimeItem title={anime.title} year={anime.year} studio={anime.studio}
+        image={anime.image} key={index}  />
+    ))}
+</div>
+<style>
+    #lista-animes {
+        padding-top: 5em;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5em;
+    }
+</style>

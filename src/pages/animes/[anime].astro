@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import animes from "../../mock/animes.json"
+import {slide} from "astro:transitions"
+
+const {anime} = Astro.params
+const info = animes[anime]
+console.log(info);
+---
+
+<Layout title={`Astro Anime - ${info.title}`}>
+    <main class="anime-info">
+        <aside>
+            <img src={info.image} transition:name={`anime-poster-${anime}`} />
+        </aside>
+        <article transition:animate="slide">
+            <h2>{info.title}</h2>
+            <p>
+                <b>Studio: </b>{info.studio}
+            </p>
+            <p>
+                <b>Year: </b>{info.year}
+            </p>
+            <p>
+                <b>Genres: </b>{info.genres.map(genre => <span class="genre">{genre}</span>)}
+            </p>
+            <p>
+                <b>Plot: </b>{info.plot}
+            </p>
+            <a href="javascript:history.back()">Volver</a>
+        </article>
+    </main>
+</Layout>
+
+<style>
+    aside {
+        transition: all .5s ease-in-out;
+    }
+    .anime-info {
+        padding: 5em;
+        color: white;
+        display: flex;
+        gap: 2.5em;
+    }
+
+    .genre {
+        padding: .25em .75em;
+        border-radius: 1em;
+        background-color: #55f;
+        margin: 0 .5em;
+        font-size: 13px;
+        letter-spacing: .1em;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+    }
+</style>
