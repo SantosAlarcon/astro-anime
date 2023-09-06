@@ -37,7 +37,6 @@ const info = animes.find(a => a.id === id)
             <p>
                 <b>Plot: </b>{info.plot}
             </p>
-            <a href="javascript:history.back()">Volver</a>
         </article>
     </main>
 </Layout>
@@ -46,8 +45,9 @@ const info = animes.find(a => a.id === id)
     aside {
         transition: all .5s ease-in-out;
     }
+
     .anime-info {
-        padding: 5em;
+        padding: 10rem 5rem 5rem 5rem;
         color: white;
         display: flex;
         gap: 2.5em;

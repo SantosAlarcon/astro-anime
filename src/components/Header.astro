@@ -1,0 +1,32 @@
+---
+---
+<header>
+    <nav>
+       <a href="/"><img src="/logo.webp" alt="logo" /></a>
+       <a href="">Trending anime</a>
+       <a href="">Popular anime</a>
+    </nav>
+</header>
+
+<style>
+    header {
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+
+    nav {
+        border-top: 1px #666 solid;
+        border-bottom: 1px #666 solid;
+        padding: 1rem 5rem;
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        background-color: #13151a33;
+        backdrop-filter: blur(5px);
+
+        & img {
+            width: 160px;
+        }
+    }
+</style>
