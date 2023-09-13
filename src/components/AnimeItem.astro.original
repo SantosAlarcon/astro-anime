@@ -1,0 +1,38 @@
+---
+import {slide} from "astro:transitions"
+interface Props {
+    id: string,
+    title: string,
+    year: number,
+    studio: string,
+    image: string,
+    key: number
+    score: number
+}
+
+const {id, title, year, studio, image, key, score} = Astro.props
+---
+
+<li id="anime-item">
+    <a href={`/animes/${id}`} title={title}><img src={image}
+        transition:name={`anime-poster-${id}`} /></a>
+    <h3>{title}</h3>
+    <h5>{year} - {studio}</h5>
+    <div class="score">
+        ⭐{score}
+    </div>
+</li>
+<style>
+    #anime-item {
+        list-style: none;
+
+        & img {
+            height: 240px;
+            transition: all .5s ease-in-out;
+        }
+
+        & img:hover {
+            transform: scale(1.1em);
+        }
+    }
+</style>

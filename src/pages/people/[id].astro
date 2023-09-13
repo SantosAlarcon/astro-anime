@@ -1,0 +1,93 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {slide} from "astro:transitions"
+import {Icon} from "astro-icon"
+import invertJapanesePerson from "../../utils/invertJapanesePerson.ts"
+
+const {id} = Astro.params
+
+const response = await fetch(`https://api.jikan.moe/v4/people/${id}/full`).then(res => res.json())
+const person_info = await response.data;
+---
+
+<Layout title={`Astro Anime - ${person_info.name}`}>
+    <main class="person-info">
+        <aside>
+            <img src={person_info.images.jpg.image_url}
+                transition:name={`people-${person_info.mal_id}`} />
+        </aside>
+        <article transition:animate="slide">
+            <h1>{person_info.name} - ({person_info.family_name})</h1>
+            <p>
+                {person_info.about}
+            </p>
+
+            <!--<a class="trailer" href={anime_info.trailer.url} target="_blank">
+                <Icon name="mdi:play" /> Trailer
+            </a>-->º
+        </article>
+    </main>
+    <main class="roles" transition:animate="slide">
+        <h2>Roles</h2>
+        <ul>
+            {person_info.voices.map(role => (
+                <li>
+                    <b>{invertJapanesePerson(role.character.name)}</b> in
+                    <a href={`/animes/${role.anime.mal_id}`}><b>{role.anime.title}</b></a>
+                </li>
+            ))}
+        </ul>
+    </main>
+</Layout>
+
+<style>
+    aside {
+        transition: all .5s ease-in-out;
+    }
+
+    .person-info {
+        padding: 10rem 5rem 5rem 5rem;
+        color: white;
+        display: flex;
+        gap: 2.5em;
+    }
+
+    .roles {
+        color: white;
+        padding: 1rem 5rem 5rem 5rem;
+
+        & ul {
+            margin: 0;
+        }
+
+        & li {
+            padding: .5em 0;
+        }
+    }
+
+    .genre {
+        padding: .25em .75em;
+        border-radius: 1em;
+        background-color: #55f;
+        margin: 0 .5em;
+        font-size: 13px;
+        letter-spacing: .1em;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+    }
+
+    @media (width < 640px) {
+        .person-info {
+            flex-direction: column;
+
+            & img {
+                width: 100%;
+            }
+        }
+    }
+
+</style>

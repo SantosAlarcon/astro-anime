@@ -2,9 +2,24 @@
 ---
 <header>
     <nav>
-       <a href="/"><img src="/logo.webp" alt="logo" /></a>
-       <a href="">Trending anime</a>
-       <a href="">Popular anime</a>
+        <div class="logo">
+            <a href="/"><img src="/logo.webp" alt="logo" /></a>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="">Trending anime</a></li>
+                <li><a href="">Popular anime</a></li>
+            </ul>
+        </div>
+        <div class="mobile-nav-menu">
+            <span />
+            <div class="mobile-nav-links">
+                <ul>
+                    <li><a href="">Trending anime</a></li>
+                    <li><a href="">Popular anime</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
 
@@ -16,17 +31,137 @@
     }
 
     nav {
-        border-top: 1px #666 solid;
         border-bottom: 1px #666 solid;
         padding: 1rem 5rem;
         display: flex;
+        justify-content: flex-start;
         gap: 1em;
         align-items: center;
-        background-color: #13151a33;
+        background-color: #13151abb;
         backdrop-filter: blur(5px);
 
         & img {
             width: 160px;
         }
     }
+
+    .nav-links ul {
+        display: flex;
+        gap: 2em;
+        list-style: none;
+    }
+
+    .mobile-nav-menu {
+        display: none;
+    }
+
+    /* Mobile */
+    @media (width < 640px) {
+        .logo {
+            & img {
+                width: 175px;
+            }
+        }
+        nav {
+            padding: 1em;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .mobile-nav-menu {
+            display: flex;
+            align-items: center;
+            border: 1px white solid;
+            border-radius: .5em;
+            width: 30px;
+            height: 20px;
+            padding: 1.25em;
+            cursor: pointer;
+
+            & ul {
+                display: none;
+            }
+
+            &.active ul {
+                display: flex;
+                flex-direction: column;
+                backdrop-filter: blur(5px);
+                background-color: #112b;
+                margin-top: 0;
+                font-size: 1.5em;
+                align-items: center;
+                width: 100%;
+                list-style: none;
+                padding-left: 0;
+                position: absolute;
+                top: 3.6em;
+                left: 0;
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            &.active a {
+                color: white;
+            }
+
+            &.active li {
+                padding: .4em 0;
+            }
+
+            & span {
+                background-color: white;
+                width: 100%;
+                height: 5px;
+                transition: all .15s ease-in-out;
+            }
+
+            & span::before {
+                background-color: white;
+                width: 100%;
+                height: 5px;
+                content: "";
+                display: block;
+                margin-top: -0.8em;
+                transition: all .15s ease-in-out;
+            }
+
+            & span::after {
+                background-color: white;
+                width: 100%;
+                height: 5px;
+                content: "";
+                display: block;
+                margin-top: 1.3em;
+                transition: all .15s ease-in-out;
+            }
+
+            &.active span {
+                transform: rotate(-45deg);
+            }
+
+            &.active span::before {
+                transform: rotate(90deg);
+                margin-top: 0;
+            }
+
+            &.active span::after {
+                transform: rotate(45deg);
+                margin-top: 0;
+                opacity: 0;
+            }
+
+
+        }
+    }
 </style>
+
+<script>
+    const mobileBtn = document.querySelector(".mobile-nav-menu");
+    mobileBtn.addEventListener("click", () => {
+        mobileBtn.classList.toggle("active");
+        document.querySelector("body").classList.toggle("no-scroll");
+    })
+</script>
