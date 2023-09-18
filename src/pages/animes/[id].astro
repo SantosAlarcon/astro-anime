@@ -1,110 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import ListOfCharacters from "../../components/ListOfCharacters.astro"
-import {slide} from "astro:transitions"
-import {Icon} from "astro-icon"
+import AnimeDetails from "../fragments/AnimeDetails/index.astro"
 
 const {id} = Astro.params
 
-const response = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`).then(res => res.json())
-const anime_info = await response.data;
+// Get the full details of the anime.
+const response = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`)
+const json = await response.json()
+const anime_info = json.data;
 ---
 
 <Layout title={`Astro Anime - ${anime_info.title}`}>
-    <main class="anime-info">
-        <aside>
-            <img src={anime_info.images.webp.large_image_url} transition:name={`poster-${anime_info.mal_id}`} />
-        </aside>
-        <article transition:animate="slide">
-            <h1>{anime_info.title}</h1>
-            <p>
-                <b>Studio: </b>{anime_info.studios[0].name}
-            </p>
-            <p>
-                <b>Year: </b>{anime_info.year}
-            </p>
-            <p>
-                <b>Genres: </b>{anime_info.genres.map(genre => <span class="genre">{genre.name}</span>)}
-            </p>
-            <p>
-                <b>Demographics: </b>{anime_info.demographics[0]?.name}
-            </p>
-            <p>
-                <b>Score: </b>{anime_info.score}
-            </p>
-            <p>
-                <b>Synopsis: </b>{anime_info.synopsis}
-            </p>
-
-            <a class="trailer" href={anime_info.trailer.url} target="_blank">
-                <Icon name="mdi:play" /> Trailer
-            </a>
-        </article>
-    </main>
-    <main class="characters" transition:animate="slide">
-        <h2>Characters</h2>
-        <ListOfCharacters id={anime_info.mal_id} />
-    </main>
+    <AnimeDetails anime={anime_info} />
 </Layout>
-
-<style>
-    aside {
-        transition: all .5s ease-in-out;
-    }
-
-    .anime-info {
-        padding: 10rem 5rem 5rem 5rem;
-        color: white;
-        display: flex;
-        gap: 2.5em;
-    }
-
-    .characters {
-        color: white;
-        padding: 1rem 5rem 5rem 5rem;
-    }
-
-    .genre {
-        padding: .25em .75em;
-        border-radius: 1em;
-        background-color: #55f;
-        margin: 0 .5em;
-        font-size: 13px;
-        letter-spacing: .1em;
-    }
-
-    article {
-        display: flex;
-        flex-direction: column;
-        gap: .5em;
-    }
-
-    .trailer {
-        padding: .25em .75em;
-        border-radius: 1em;
-        background-color: #f55;
-        font-size: 13px;
-        letter-spacing: .1em;
-        color: white;
-        display: flex;
-        align-items: center;
-        gap: .25em;
-        width: fit-content;
-        margin: 1em 0;
-
-        & svg {
-            width: 20px;
-        }
-    }
-
-    @media (width < 640px) {
-        .anime-info {
-            flex-direction: column;
-        }
-
-        aside img {
-            width: 100%;
-        }
-    }
-</style>
-

@@ -96,5 +96,15 @@ const anime_info = await response.data;
             width: 20px;
         }
     }
+
+    @media (width < 640px) {
+        .anime-info {
+            flex-direction: column;
+        }
+
+        aside img {
+            width: 100%;
+        }
+    }
 </style>
 

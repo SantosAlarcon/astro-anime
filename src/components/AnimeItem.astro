@@ -1,13 +1,11 @@
 ---
-import {slide} from "astro:transitions"
-
 const {anime} = Astro.props
 
 // Se desestructura el objeto de anime en varias variables.
 const {mal_id, title, images, year, studios, score} = anime;
 ---
 
-<div id="anime-item" key={mal_id}>
+<div id="anime-item">
     <a href={`/animes/${mal_id}`} title={title}>
         <img 
             src={images.webp.image_url}
@@ -31,12 +29,13 @@ const {mal_id, title, images, year, studios, score} = anime;
         }
 
         & img:hover {
-            box-shadow: 0 0 1em #fff;
+            transform: scale(1.1);
         }
     }
 
     .score {
             font-size: 15px;
-        }
+            color: white;
+    }
 
 </style>

@@ -11,8 +11,8 @@ const {character} = Astro.props
         src={character.voice_actors[0].person.images.jpg.image_url}
         transition:name={`people-${character.voice_actors[0].person.mal_id}`}
     /></a>
-    <span><b>{invertJapanesePerson(character.voice_actors[0].person.name)}</b></span>
-    <span>{invertJapanesePerson(character.character.name)}</span>
+    <span><b>{await invertJapanesePerson(character.voice_actors[0].person.name)}</b></span>
+    <span>{await invertJapanesePerson(character.character.name)}</span>
 </div>
 <style>
     #character-item {

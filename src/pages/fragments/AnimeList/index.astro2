@@ -1,0 +1,42 @@
+---
+import AnimeItem from "../../../components/AnimeItem.astro"
+import getLocalStorage from "../../../utils/getLocalStorage.ts"
+import setLocalStorage from "../../../utils/setLocalStorage.ts"
+
+let airing_animes;
+
+// First check if the data is already in the local storage.
+if (getLocalStorage("trending-anime")) {
+    airing_animes = getLocalStorage("trending-anime");
+} else {
+    // Fetch the trending anime data if there is not any data on the lcoal
+    // storage.
+    const response = await fetch("https://api.jikan.moe/v4/seasons/now")
+    const jsonData = await response.json();
+    airing_animes = jsonData.data;
+
+    // The fetched data is saved on the local storage.
+    setLocalStorage("trending-anime", airing_animes);
+}
+---
+<div id="lista-animes">
+    {airing_animes.map(anime => <AnimeItem anime={anime} />)}
+</div>
+
+<style>
+    #lista-animes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5em;
+  		padding: 10rem 3rem 3rem 3rem;
+		width: 1200px;
+		max-width: calc(100% - 2rem);
+		margin: auto;
+  }
+    @media (width < 640px) {
+        #lista-animes {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2em;
+        }
+    }
+</style>
