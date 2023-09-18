@@ -5,7 +5,7 @@ import invertJapanesePerson from "../utils/invertJapanesePerson.ts"
 const {character} = Astro.props
 ---
 
-<div id="character-item" key={character.voice_actors[0].person.mal_id}>
+<div id="character-item">
     <a href={`/people/${character.voice_actors[0].person.mal_id}`}>
     <img 
         src={character.voice_actors[0].person.images.jpg.image_url}

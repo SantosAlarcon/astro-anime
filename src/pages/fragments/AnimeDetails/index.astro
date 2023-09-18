@@ -1,6 +1,5 @@
 ---
 import PersonList from "../PersonList/index.astro"
-import {slide} from "astro:transitions"
 import {Icon} from "astro-icon"
 const {anime} = Astro.props
 ---
@@ -17,7 +16,7 @@ const {anime} = Astro.props
             <b>Year: </b>{anime.year}
         </p>
         <p>
-            <b>Genres: </b>{anime.genres.map(genre => <span class="genre">{genre.name}</span>)}
+            <b>Genres: </b>{anime.genres.map((genre: any) => <span class="genre">{genre.name}</span>)}
         </p>
         <p>
             <b>Demographics: </b>{anime.demographics[0]?.name}
@@ -36,7 +35,7 @@ const {anime} = Astro.props
 </main>
 <main class="characters" transition:animate="slide">
     <h2>Seiyuu and characters</h2>
-    <PersonList id={anime.mal_id} />
+    <!--<PersonList id={anime.mal_id} />-->
 </main>
 
 <style>
