@@ -9,8 +9,8 @@ const {mal_id, title, images, year, studios, score} = anime;
     <a href={`/animes/${mal_id}`} title={title}>
         <img 
             src={images.webp.image_url}
-            alt={title}
             transition:name={`poster-${mal_id}`}
+            alt={title}
         />
     </a>
     <h3>{title}</h3>

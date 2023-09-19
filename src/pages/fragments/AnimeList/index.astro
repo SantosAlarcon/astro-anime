@@ -25,7 +25,8 @@ const airing_animes = jsonData.data;
 
     @media (width < 640px) {
         #lista-animes {
-            width: 80vw;
+            width: inherit;
+            max-width: inherit;
             grid-template-columns: repeat(2, 1fr);
             gap: 2em;
         }

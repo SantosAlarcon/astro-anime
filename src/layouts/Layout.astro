@@ -13,7 +13,10 @@ const { title } = Astro.props;
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Astro Anime - An anime app made by Astro" />
+        <meta
+            name="description"
+            content="Astro Anime - An anime app made by Astro"
+        />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
@@ -22,123 +25,125 @@ const { title } = Astro.props;
         <!--<script>
             import "../scripts/spa-navigation.js";
         </script>-->
+        <script>
+            import "../scripts/nav-menu.js";
+        </script>
         <ViewTransitions fallback="none" />
     </head>
     <body>
         <Header />
         <slot />
         <Footer />
-    </body>
+    </body><style is:global>
+        @font-face {
+            font-family: "Outfit";
+            src: url("/fonts/Outfit-Regular.ttf");
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: "Outfit";
+            src: url("/fonts/Outfit-Bold.ttf");
+            font-weight: 600;
+        }
+
+        @font-face {
+            font-family: "Outfit";
+            src: url("/fonts/Outfit-ExtraBold.ttf");
+            font-weight: 700;
+        }
+
+        @font-face {
+            font-family: "Outfit";
+            src: url("/fonts/Outfit-Black.ttf");
+            font-weight: 800;
+        }
+
+        :root {
+            --accent: 136, 58, 234;
+            --accent-light: 224, 204, 250;
+            --accent-dark: 49, 10, 101;
+            --accent-gradient: linear-gradient(
+                45deg,
+                rgb(var(--accent)),
+                rgb(var(--accent-light)) 30%,
+                white 60%
+            );
+            user-select: none;
+        }
+        html {
+            font-family: "Outfit", system-ui, sans-serif;
+            background: #13151a;
+            background-size: 224px;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .no-scroll {
+            overflow: hidden;
+        }
+
+        code {
+            font-family:
+                Menlo,
+                Monaco,
+                Lucida Console,
+                Liberation Mono,
+                DejaVu Sans Mono,
+                Bitstream Vera Sans Mono,
+                Courier New,
+                monospace;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1.15em;
+            margin: 0.5em 0;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            font-weight: inherit;
+        }
+
+        h5 {
+            font-size: 1.4rem;
+            font-weight: inherit;
+        }
+
+        h6 {
+            font-size: 1.25rem;
+            font-weight: inherit;
+        }
+
+        a,
+        a:active,
+        a:visited {
+            text-decoration: none;
+            color: #66f;
+        }
+
+        p {
+            margin: 0.25em 0;
+        }
+    </style>
 </html>
-<style is:global>
-    @font-face {
-        font-family: "Outfit";
-        src: url("/fonts/Outfit-Regular.ttf");
-        font-weight: 500;
-    }
-
-    @font-face {
-        font-family: "Outfit";
-        src: url("/fonts/Outfit-Bold.ttf");
-        font-weight: 600;
-    }
-
-    @font-face {
-        font-family: "Outfit";
-        src: url("/fonts/Outfit-ExtraBold.ttf");
-        font-weight: 700;
-    }
-
-    @font-face {
-        font-family: "Outfit";
-        src: url("/fonts/Outfit-Black.ttf");
-        font-weight: 800;
-    }
-
-    :root {
-        --accent: 136, 58, 234;
-        --accent-light: 224, 204, 250;
-        --accent-dark: 49, 10, 101;
-        --accent-gradient: linear-gradient(
-            45deg,
-            rgb(var(--accent)),
-            rgb(var(--accent-light)) 30%,
-            white 60%
-        );
-        user-select: none;
-    }
-    html {
-        font-family: "Outfit", system-ui, sans-serif;
-        background: #13151a;
-        background-size: 224px;
-    }
-
-    body {
-        margin: 0;
-    }
-
-    .no-scroll {
-        overflow: hidden;
-    }
-
-    code {
-        font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            monospace;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        line-height: 1.15em;
-        margin: 0.5em 0;
-        color: #fff;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    h3 {
-        font-size: 1.6rem;
-    }
-
-    h4 {
-        font-size: 1.5rem;
-        font-weight: inherit;
-    }
-
-    h5 {
-        font-size: 1.4rem;
-        font-weight: inherit;
-    }
-
-    h6 {
-        font-size: 1.25rem;
-        font-weight: inherit;
-    }
-
-    a,
-    a:active,
-    a:visited {
-        text-decoration: none;
-        color: #66f;
-    }
-
-    p {
-        margin: 0.25em 0;
-    }
-</style>
