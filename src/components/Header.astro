@@ -12,7 +12,7 @@
             </ul>
         </div>
         <div class="mobile-nav-menu">
-            <span />
+            <span></span>
             <div class="mobile-nav-links">
                 <ul>
                     <li><a href="">Trending anime</a></li>
@@ -56,7 +56,7 @@
     }
 
     /* Mobile */
-    @media (width < 640px) {
+    @media (width < 720px) {
         .logo {
             & img {
                 width: 120px;
@@ -75,10 +75,10 @@
             display: flex;
             align-items: center;
             border: 1px white solid;
-            border-radius: .5em;
+            border-radius: 0.5em;
             width: 30px;
             height: 20px;
-            padding: .75em;
+            padding: 0.75rem;
             cursor: pointer;
 
             & ul {
@@ -108,14 +108,14 @@
             }
 
             &.active li {
-                padding: .4em 0;
+                padding: 0.4em 0;
             }
 
             & span {
                 background-color: white;
                 width: 100%;
                 height: 2px;
-                transition: all .15s ease-in-out;
+                transition: all 0.15s ease-in-out;
             }
 
             & span::before {
@@ -125,7 +125,7 @@
                 content: "";
                 display: block;
                 margin-top: -0.7em;
-                transition: all .15s ease-in-out;
+                transition: all 0.15s ease-in-out;
             }
 
             & span::after {
@@ -135,7 +135,7 @@
                 content: "";
                 display: block;
                 margin-top: 1.3em;
-                transition: all .15s ease-in-out;
+                transition: all 0.15s ease-in-out;
             }
 
             &.active span {
