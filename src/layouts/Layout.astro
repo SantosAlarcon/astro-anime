@@ -31,12 +31,11 @@ const { title } = Astro.props;
         <Header />
         <slot />
         <Footer />
-    </body>
-
         <script>
             import "../scripts/nav-menu.js";
         </script>
-
+    </body>
+</html>
 
     <style is:global>
         @font-face {
@@ -75,6 +74,11 @@ const { title } = Astro.props;
             );
             user-select: none;
         }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         html {
             font-family: "Outfit", system-ui, sans-serif;
             background: #13151a;
@@ -150,4 +154,3 @@ const { title } = Astro.props;
             margin: 0.25em 0;
         }
     </style>
-</html>

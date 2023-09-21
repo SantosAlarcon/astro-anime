@@ -8,9 +8,9 @@ const jsonData = await response.json();
 const airing_animes = jsonData.data;
 ---
 
-<div id="lista-animes">
+<main id="lista-animes">
     {airing_animes.map((anime) => <AnimeItem anime={anime} />)}
-</div>
+</main>
 
 <style>
     #lista-animes {
@@ -25,7 +25,6 @@ const airing_animes = jsonData.data;
 
     @media (width < 720px) {
         #lista-animes {
-            width: auto;
             grid-template-columns: repeat(2, 1fr);
             gap: 2em;
         }
