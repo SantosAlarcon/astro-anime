@@ -18,15 +18,14 @@ const airing_animes = jsonData.data;
         grid-template-columns: repeat(3, 1fr);
         gap: 5em;
         padding: 8rem 3rem 3rem 3rem;
-        /*width: 1200px;
-        max-width: calc(100% - 2rem);*/
+        width: 1200px;
+        max-width: calc(100% - 2rem);
         margin: auto;
     }
 
     @media (width < 720px) {
         #lista-animes {
-            /*width: inherit;
-            max-width: inherit;*/
+            width: auto;
             grid-template-columns: repeat(2, 1fr);
             gap: 2em;
         }
