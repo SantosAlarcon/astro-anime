@@ -11,7 +11,7 @@
                 <li><a href="">Popular anime</a></li>
             </ul>
         </div>
-        <div class="mobile-nav-menu">
+        <button class="mobile-nav-menu" aria-pressed="false">
             <span></span>
             <div class="mobile-nav-links">
                 <ul>
@@ -19,11 +19,16 @@
                     <li><a href="">Popular anime</a></li>
                 </ul>
             </div>
-        </div>
+        </button>
     </nav>
 </header>
 
 <style>
+    button {
+        background: transparent;
+        outline: none;
+        border: none;
+    }
     header {
         position: fixed;
         width: 100%;
