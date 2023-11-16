@@ -7,5 +7,5 @@ export default defineConfig({
     adapter: netlify(),
     redirects: {
         '/old-page': '/new-page'
-    }
+    },
 });

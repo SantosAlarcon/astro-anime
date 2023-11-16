@@ -1,159 +1,178 @@
 ---
+
 ---
+
 <header>
-    <nav>
-        <div class="logo">
-            <a href="/"><img src="/logo.webp" alt="logo" /></a>
-        </div>
-        <div class="nav-links">
-            <ul>
-                <li><a href="">Trending anime</a></li>
-                <li><a href="">Popular anime</a></li>
-            </ul>
-        </div>
-        <button class="mobile-nav-menu" aria-pressed="false">
-            <span></span>
-            <div class="mobile-nav-links">
-                <ul>
-                    <li><a href="">Trending anime</a></li>
-                    <li><a href="">Popular anime</a></li>
-                </ul>
-            </div>
-        </button>
-    </nav>
+	<nav>
+		<div class="logo">
+			<a href="/"><img src="/logo.webp" alt="logo" /></a>
+		</div>
+		<div class="nav-links">
+			<ul>
+				<li><a href="">Trending anime</a></li>
+				<li><a href="">Popular anime</a></li>
+			</ul>
+		</div>
+		<button class="mobile-nav-menu" aria-pressed="false">
+			<span></span>
+			<div class="mobile-nav-links">
+				<ul>
+					<li><a href="">Trending anime</a></li>
+					<li><a href="">Popular anime</a></li>
+				</ul>
+			</div>
+		</button>
+	</nav>
 </header>
 
 <style>
-    button {
-        background: transparent;
-        outline: none;
-        border: none;
-    }
-    header {
-        position: fixed;
-        width: 100%;
-        z-index: 1;
-    }
+	button {
+		background: transparent;
+		outline: none;
+		border: none;
+	}
+	header {
+		position: fixed;
+		width: 100%;
+		z-index: 1;
+	}
 
-    nav {
-        border-bottom: 1px #666 solid;
-        padding: 1rem 5rem;
-        display: flex;
-        justify-content: flex-start;
-        gap: 1em;
-        align-items: center;
-        background-color: #13151abb;
-        backdrop-filter: blur(5px);
+	nav {
+		border-bottom: 1px #666 solid;
+		padding: 1rem 5rem;
+		display: flex;
+		justify-content: flex-start;
+		gap: 1em;
+		align-items: center;
+		background-color: #13151abb;
+		backdrop-filter: blur(5px);
 
-        & img {
-            width: 160px;
-        }
-    }
+		& img {
+			width: 160px;
+		}
+	}
 
-    .nav-links ul {
-        display: flex;
-        gap: 2em;
-        list-style: none;
-    }
+	.nav-links ul {
+		display: flex;
+		gap: 2em;
+		list-style: none;
+	}
 
-    .mobile-nav-menu {
-        display: none;
-    }
+	.mobile-nav-menu {
+		display: none;
+	}
 
-    /* Mobile */
-    @media (width < 720px) {
-        .logo {
-            & img {
-                width: 120px;
-            }
-        }
-        nav {
-            padding: 1em;
-            justify-content: space-between;
-        }
+	/* Mobile */
+	@media (width < 720px) {
+		.logo {
+			& img {
+				width: 120px;
+			}
+		}
+		nav {
+			padding: 1em;
+			justify-content: space-between;
+		}
 
-        .nav-links {
-            display: none;
-        }
+		.nav-links {
+			display: none;
+		}
 
-        .mobile-nav-menu {
-            display: flex;
-            align-items: center;
-            width: 60px;
-            padding: 0.75rem;
-            cursor: pointer;
+		.mobile-nav-menu {
+			display: flex;
+			align-items: center;
+			width: 60px;
+			padding: 0.75rem;
+			cursor: pointer;
 
-            & ul {
-                display: none;
-            }
+			& ul {
+				display: none;
+			}
 
-            &.active ul {
-                display: flex;
-                flex-direction: column;
-                backdrop-filter: blur(5px);
-                background-color: #112b;
-                margin-top: 0;
-                font-size: 1.5em;
-                align-items: center;
-                width: 100%;
-                list-style: none;
-                padding-left: 0;
-                position: absolute;
-                top: 3.6em;
-                left: 0;
-                height: 100vh;
-                overflow: hidden;
-            }
+			&.active ul {
+				display: flex;
+				flex-direction: column;
+				backdrop-filter: blur(5px);
+				background-color: #112b;
+				margin-top: 0;
+				font-size: 1.5em;
+				align-items: center;
+				width: 100%;
+				list-style: none;
+				padding-left: 0;
+				position: absolute;
+				top: 3.6em;
+				left: 0;
+				height: 100vh;
+				overflow: hidden;
+			}
 
-            &.active a {
-                color: white;
-            }
+			&.active a {
+				color: white;
+			}
 
-            &.active li {
-                padding: 0.4em 0;
-            }
+			&.active li {
+				padding: 0.4em 0;
+			}
 
-            & span {
-                background-color: white;
-                width: 100%;
-                height: 2px;
-                transition: all 0.15s ease-in-out;
-            }
+			& span {
+				background-color: white;
+				width: 100%;
+				height: 2px;
+				transition: all 0.15s ease-in-out;
+			}
 
-            & span::before {
-                background-color: white;
-                width: 100%;
-                height: 2px;
-                content: "";
-                display: block;
-                margin-top: -0.7em;
-                transition: all 0.15s ease-in-out;
-            }
+			& span::before {
+				background-color: white;
+				width: 100%;
+				height: 2px;
+				content: "";
+				display: block;
+				margin-top: -0.7em;
+				transition: all 0.15s ease-in-out;
+			}
 
-            & span::after {
-                background-color: white;
-                width: 100%;
-                height: 2px;
-                content: "";
-                display: block;
-                margin-top: 1.3em;
-                transition: all 0.15s ease-in-out;
-            }
+			& span::after {
+				background-color: white;
+				width: 100%;
+				height: 2px;
+				content: "";
+				display: block;
+				margin-top: 1.3em;
+				transition: all 0.15s ease-in-out;
+			}
 
-            &.active span {
-                transform: rotate(-45deg);
-            }
+			&.active span {
+				transform: rotate(-45deg);
+			}
 
-            &.active span::before {
-                transform: rotate(90deg);
-                margin-top: 0;
-            }
+			&.active span::before {
+				transform: rotate(90deg);
+				margin-top: 0;
+			}
 
-            &.active span::after {
-                transform: rotate(45deg);
-                margin-top: 0;
-                opacity: 0;
-            }
-        }
-    }
+			&.active span::after {
+				transform: rotate(45deg);
+				margin-top: 0;
+				opacity: 0;
+			}
+		}
+	}
 </style>
+<script is:inline>
+	document.addEventListener("astro:page-load", () => {
+		const mobileBtn = document.querySelector(".mobile-nav-menu");
+		mobileBtn.addEventListener("click", () => {
+			mobileBtn.classList.toggle("active");
+			document.querySelector("body").classList.toggle("no-scroll");
+		});
+	}, { once: true });
+
+	document.addEventListener("astro:after-swap", () => {
+		const mobileBtn = document.querySelector(".mobile-nav-menu");
+		mobileBtn.addEventListener("click", () => {
+			mobileBtn.classList.toggle("active");
+			document.querySelector("body").classList.toggle("no-scroll");
+		});
+	});
+</script>
