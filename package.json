@@ -13,5 +13,8 @@
     "@astrojs/netlify": "^5.2.0",
     "astro": "latest",
     "astro-icon": "^1.1.0"
+  },
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.1.64"
   }
 }
