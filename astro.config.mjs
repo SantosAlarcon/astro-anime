@@ -6,6 +6,7 @@ import icon from "astro-icon"
 export default defineConfig({
     output: "server",
     adapter: netlify(),
+    prefetch: false,
     redirects: {
         '/old-page': '/new-page'
     },
