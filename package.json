@@ -10,11 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^3.0.1",
-    "astro": "^3.0.12",
-    "astro-icon": "^0.8.1",
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0",
-    "typescript": "latest"
+    "@astrojs/netlify": "latest",
+    "@iconify-json/mdi": "^1.2.1",
+    "astro": "latest",
+    "astro-icon": "latest",
+    "prettier": "latest",
+    "prettier-plugin-astro": "latest",
+    "typescript": "^5.6.3"
   }
 }
