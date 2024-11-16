@@ -1,34 +1,43 @@
 ---
-import {slide} from "astro:transitions"
-import invertJapanesePerson from "../utils/invertJapanesePerson.ts"
+import { slide } from "astro:transitions";
+import invertJapanesePerson from "../utils/invertJapanesePerson.ts";
 
-const {character} = Astro.props
+const { character } = Astro.props;
 ---
 
-<div id="character-item">
-    <a href={`/people/${character.voice_actors[0].person.mal_id}`}>
-    <img 
-        src={character.voice_actors[0].person.images.jpg.image_url}
-        transition:name={`people-${character.voice_actors[0].person.mal_id}`}
-    /></a>
-    <span><b>{await invertJapanesePerson(character.voice_actors[0].person.name)}</b></span>
-    <span>{await invertJapanesePerson(character.character.name)}</span>
-</div>
+{
+	character && (
+		<div id="character-item">
+			<a href={`/people/${character.voice_actors[0].person.mal_id}`}>
+				<img
+					src={character.voice_actors[0].person.images.jpg.image_url}
+					transition:name={`people-${character.voice_actors[0].person.mal_id}`}
+				/>
+			</a>
+			<span>
+				<b>
+					{await invertJapanesePerson(character.voice_actors[0].person.name)}
+				</b>
+			</span>
+			<span>{await invertJapanesePerson(character.character.name)}</span>
+		</div>
+	)
+}
 <style>
-    #character-item {
-        list-style: none;
+	#character-item {
+		list-style: none;
 
-        & img {
-            height: 240px;
-            transition: all .5s ease-in-out;
-        }
+		& img {
+			height: 240px;
+			transition: all 0.5s ease-in-out;
+		}
 
-        & img:hover {
-            box-shadow: 0 0 1em #fff;
-        }
+		& img:hover {
+			box-shadow: 0 0 1em #fff;
+		}
 
-        & span {
-            display: block;
-        }
-    }
+		& span {
+			display: block;
+		}
+	}
 </style>
